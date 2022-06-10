@@ -1,0 +1,82 @@
+/* taken from https://benmyers.dev/blog/clickable-divs */
+button {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; /* Use whatever font-family you want */
+  font-size: 1rem;
+  line-height: 1;
+  background: transparent;
+  -webkit-appearance: none;
+}
+
+/* the rest is original */
+.button {
+  background-color: var(--color-button-background);
+  position: relative;
+  border-radius: var(--border-radius-1);
+  overflow: hidden;
+  font-family: "Mulish", sans-serif;
+  cursor: pointer;
+  user-select: none;
+
+  /* variables to control the direction of the slide */
+  --slide-down-start: inset(0% 0 0 0);
+  --slide-left-start: inset(0 0% 0 0);
+  --slide-up-start: inset(0 0 0% 0);
+  --slide-right-start: inset(0 0 0 0%);
+
+  --slide-down-end: inset(100% 0 0 0);
+  --slide-left-end: inset(0 100% 0 0);
+  --slide-up-end: inset(0 0 100% 0);
+  --slide-right-end: inset(0 0 0 100%);
+}
+
+.button-inner {
+  /* making the insides bigger than the container helps prevent
+     seeing the bottom one peek through at the very edge */
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 1rem 3rem;
+  transition: transform 400ms cubic-bezier(0.4, 0.23, 0.2, 1);
+}
+
+.button-inner span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
+  transform: translate(-50%, -50%);
+}
+
+.button-inner#top {
+  background-color: var(--color-button-background);
+  clip-path: var(--slide-right-start);
+  transition: clip-path 400ms cubic-bezier(0.4, 0.23, 0.2, 1);
+}
+
+.button:hover .button-inner#top {
+  clip-path: var(--slide-right-end);
+}
+
+.button-inner#top span {
+  color: var(--color-button-text);
+}
+
+.button-inner#bottom {
+  background-color: var(--color-button-secret-background);
+}
+
+.button-inner#bottom span {
+  color: var(--color-button-secret-text);
+}
+
+.button.disabled {
+  pointer-events: none;
+}

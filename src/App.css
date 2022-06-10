@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;600;800&family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+* {
+  font-family: "Mulish", sans-serif;
+  box-sizing: border-box;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:root {
+  --color-button-background: #569adf;
+  --color-button-text: #d1eaff;
+  --color-button-secret-background: #076137;
+  --color-button-secret-text: #97facc;
+
+  --font-weight-thin: 200;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 800;
+
+  --border-radius-1: 0.5rem;
+}
