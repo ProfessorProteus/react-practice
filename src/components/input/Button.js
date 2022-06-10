@@ -28,12 +28,8 @@ function Button({
     setTextHeight(h + "px");
   }, []);
 
-  const handleKeyDown = (e) => {
-    // do stuff
-  };
-
   return (
-    <div
+    <button
       className={`button ${additionalClass || ""} ${
         disabled ? "disabled" : ""
       }`}
@@ -42,9 +38,7 @@ function Button({
         width: `calc(${textWidth} + 6rem)`,
         height: `calc(${textHeight} + 2rem)`,
       }}
-      onClick={func}
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
+      onClick={() => console.log("Hello")}
     >
       <div className="button-inner" id="bottom">
         <span ref={labelBottomRef}>{bottomLabel}</span>
@@ -52,7 +46,7 @@ function Button({
       <div className="button-inner" id="top">
         <span ref={labelTopRef}>{topLabel}</span>
       </div>
-    </div>
+    </button>
   );
 }
 
