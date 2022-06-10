@@ -6,7 +6,7 @@ function Button({
   topLabel = "Button",
   bottomLabel = "Hello",
   disabled,
-  additionalClass,
+  extraClasses,
   func,
 }) {
   const labelTopRef = useRef();
@@ -30,15 +30,14 @@ function Button({
 
   return (
     <button
-      className={`button ${additionalClass || ""} ${
-        disabled ? "disabled" : ""
-      }`}
+      className={`button ${extraClasses || ""}`}
+      disabled={disabled}
       style={{
         // change these if you change the padding in the css
         width: `calc(${textWidth} + 6rem)`,
         height: `calc(${textHeight} + 2rem)`,
       }}
-      onClick={() => console.log("Hello")}
+      onClick={func}
     >
       <div className="button-inner" id="bottom">
         <span ref={labelBottomRef}>{bottomLabel}</span>
